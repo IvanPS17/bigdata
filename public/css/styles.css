@@ -1,0 +1,91 @@
+/* 1. Configuración General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Fondo oscuro tipo "Dark Mode" */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 2. Estilo de los Títulos */
+h1, h2 {
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+/* 3. Contenedor de Botones (Home) */
+.btn-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo base de los botones */
+button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza el cambio de color y tamaño */
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    transform: translateY(-5px); /* El botón "flota" un poco */
+    filter: brightness(1.2);
+}
+
+/* Colores específicos de los destinos */
+#btn-japon { background-color: #ff4757; color: white; }
+#btn-europa { background-color: #2f3542; color: white; border: 1px solid #57606f; }
+#btn-playa { background-color: #ffa502; color: white; }
+
+/* 4. Grid de Ciudades (Sección Detalle) */
+.ciudades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    width: 90%;
+}
+
+/* Tarjetas de Ciudades */
+.card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden; /* Corta la imagen para que no se salga de las esquinas redondeadas */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.card h3, .card p {
+    padding: 0 15px;
+}
+
+/* 5. Botón de Volver */
+.btn-back {
+    background-color: #57606f;
+    color: white;
+    margin-bottom: 20px;
+}

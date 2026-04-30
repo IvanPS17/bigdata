@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agencia de Viajes - Big Data</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <section id="home">
+        <h1> Explorador de Destinos</h1>
+        <p>Haz clic en los detinos para ver mas información</p>
+        <div class="btn-container">
+            <button id="btn-japon" onclick ="irA('japon'); enviarClic('Japon')">JAPÓN</button>
+            <button id="btn-europa" onclick ="irA('europa'); enviarClic('Europa')">EUROPA</button>
+            <button id="btn-playa" onclick ="irA('playa'); enviarClic('Playa')">PLAYA</button>
+
+        </div>
+        </section>
+
+        <section id="japon" style="display: none;">
+            <button onclick = "irA('home')">⬅️ Volver</button>
+            <h2>Descubre Japon</h2>
+            <div class ="ciudades">
+                <div class="card" onclick="enviarClic('Japon-Tokyo')">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300" alt="Tokyo">
+                    <p>Tokyo (Clic para ver imagen) </p>
+                </div>
+                
+                <div class="card" onclick="enviarClic('Japon-Kyoto')">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300" alt="Kyoto">
+                    <p>Kyoto (Clic para ver imagen) </p>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="js/main.js"></script>
+</html>
