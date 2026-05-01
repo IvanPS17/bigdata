@@ -6,7 +6,13 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <section id="home">
+        <section id="login-section">
+            <h1>Sistema Analitico de Viajes</h1>
+            <p>Ingresa tu correo para personalizar tu experiencia</p>
+            <input type="email" id="correo-input" placeholder="tu@uabc.edu.mx">
+            <button onclick="iniciarSesion(); ">Entrar</button>
+        </section>
+        <section id="home" class = "oculto-inicio">
         <h1> Explorador de Destinos</h1>
         <p>Haz clic en los detinos para ver mas información</p>
         <div class="btn-container">
@@ -17,7 +23,7 @@
         </div>
         </section>
 
-        <section id="japon" style="display: none;">
+        <section id="japon" class = "oculto-inicio">
             <button onclick = "irA('home')">⬅️ Volver</button>
             <h2>Descubre Japon</h2>
             <div class ="ciudades">

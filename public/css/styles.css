@@ -89,3 +89,23 @@ button:hover {
     color: white;
     margin-bottom: 20px;
 }
+
+#login-section {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+#correo-input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #57606f;
+    background-color: #2f3542;
+    color: white;
+    margin-right: 10px;
+    outline: none;
+}
+
+.oculto-inicio {
+    display: none;
+}
