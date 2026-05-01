@@ -17,7 +17,7 @@ let conteoDestinos = {
 app.post('/api/clics', (req, res) => {
     const destino = req.body.destino;
     const correo = req.body.correo;
-    const fecha = new Date().toISOString();
+    const fecha = new Date().toLocaleString();
 
     const lineaCSV = `${fecha}, ${correo}, ${destino}\n`;
 
@@ -85,5 +85,5 @@ app.post('/api/clics', (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log(" Servidor analitico de Big Data encendido (Puerto 3000)");
+    console.log(` Servidor analitico de Big Data encendido `);
 });
