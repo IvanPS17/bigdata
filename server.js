@@ -17,11 +17,18 @@ let conteoDestinos = {
 app.post('/api/clics', (req, res) => {
     const destino = req.body.destino;
     const correo = req.body.correo;
+	
+	if (!correo || !destino) {
+		return res.status(400).send({ error: "Datos incompletos" });
+	}
+	
     const fecha = new Date().toLocaleString();
 
     const lineaCSV = `${fecha}, ${correo}, ${destino}\n`;
 
-    fs.appendFileSync('registro_clics.csv', lineaCSV);
+    fs.appendFile('registro_clics.csv', lineaCSV, (err) => {
+		if (err) console.error(err);
+	});
     if (conteoDestinos[destino] !== undefined) {
             conteoDestinos[destino]++;
             totalClicsGlobales++;
@@ -74,7 +81,7 @@ app.post('/api/clics', (req, res) => {
 
         console.log(`\n======================================================`);
         console.log(`📈 [ALERTA GLOBAL] Hemos alcanzado ${totalClicsGlobales} clics totales.`);
-        console.log(`🔥 El destino en TENDENCIA ahora mismo es: ${destinoTrending.toUpperCase()} con ${maxGlobal}interacciones.`);
+        console.log(`🔥 El destino en TENDENCIA ahora mismo es: ${destinoTrending.toUpperCase()} con ${maxGlobal} interacciones.`);
         console.log(`\n======================================================`);
 
     }

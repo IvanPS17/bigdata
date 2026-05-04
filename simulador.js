@@ -10,7 +10,7 @@ const usuariosFalsos = [
 ];
 
 // Si lo subes a AWS, cambias este localhost por tu URL de Elastic Beanstalk
-const URL_SERVIDOR = 'http://localhost:3000/api/clics'; 
+const URL_SERVIDOR = 'http://192.168.137.1:3000/api/clics'; 
 
 async function dispararClicAleatorio() {
     // Escogemos un usuario y un destino al azar

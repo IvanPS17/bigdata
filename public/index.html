@@ -1,43 +1,108 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Agencia de Viajes - Big Data</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <section id="login-section">
-            <h1>Sistema Analitico de Viajes</h1>
-            <p>Ingresa tu correo para personalizar tu experiencia</p>
-            <input type="email" id="correo-input" placeholder="tu@uabc.edu.mx">
-            <button onclick="iniciarSesion(); ">Entrar</button>
-        </section>
-        <section id="home" class = "oculto-inicio">
-        <h1> Explorador de Destinos</h1>
-        <p>Haz clic en los detinos para ver mas información</p>
-        <div class="btn-container">
-            <button id="btn-japon" onclick ="irA('japon'); enviarClic('Japon')">JAPÓN</button>
-            <button id="btn-europa" onclick ="irA('europa'); enviarClic('Europa')">EUROPA</button>
-            <button id="btn-playa" onclick ="irA('playa'); enviarClic('Playa')">PLAYA</button>
+<head>
+    <meta charset="UTF-8">
+    <title>Agencia de Viajes - Big Data</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
 
+<body>
+
+```
+<section id="login-section">
+    <h1>Sistema Analitico de Viajes</h1>
+    <p>Ingresa tu correo para personalizar tu experiencia</p>
+    <input type="email" id="correo-input" placeholder="tu@uabc.edu.mx">
+    <button onclick="iniciarSesion()">Entrar</button>
+</section>
+
+
+<section id="home" class="oculto-inicio">
+    <p id="usuario-logueado"></p>
+    <h1>Explorador de Destinos</h1>
+    <p>Haz clic en los destinos para ver más información</p>
+
+    <div class="btn-container">
+        <button id="btn-japon" onclick="irA('japon'); enviarClic('Japon')">JAPÓN</button>
+        <button id="btn-europa" onclick="irA('europa'); enviarClic('Europa')">EUROPA</button>
+        <button id="btn-playa" onclick="irA('playa'); enviarClic('Playa')">PLAYA</button>
+    </div>
+</section>
+
+
+<section id="japon" class="oculto-inicio">
+    <button class="btn-back" onclick="irA('home')">⬅️ Volver</button>
+    <h2>Descubre Japón</h2>
+
+    <div class="ciudades-grid">
+
+        <div class="card" onclick="enviarClic('Japon-Tokyo'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300">
+            <p>Tokyo</p>
         </div>
-        </section>
 
-        <section id="japon" class = "oculto-inicio">
-            <button onclick = "irA('home')">⬅️ Volver</button>
-            <h2>Descubre Japon</h2>
-            <div class ="ciudades">
-                <div class="card" onclick="enviarClic('Japon-Tokyo')">
-                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300" alt="Tokyo">
-                    <p>Tokyo (Clic para ver imagen) </p>
-                </div>
-                
-                <div class="card" onclick="enviarClic('Japon-Kyoto')">
-                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300" alt="Kyoto">
-                    <p>Kyoto (Clic para ver imagen) </p>
-                </div>
-            </div>
-        </section>
-    </body>
-    <script src="js/main.js"></script>
+        <div class="card" onclick="enviarClic('Japon-Kyoto'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300">
+            <p>Kyoto</p>
+        </div>
+
+        <div class="card" onclick="enviarClic('Japon-Osaka'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=300">
+            <p>Osaka</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="europa" class="oculto-inicio">
+    <button class="btn-back" onclick="irA('home')">⬅️ Volver</button>
+    <h2>Descubre Europa</h2>
+
+    <div class="ciudades-grid">
+
+        <div class="card" onclick="enviarClic('Europa-Paris'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300">
+            <p>París</p>
+        </div>
+
+        <div class="card" onclick="enviarClic('Europa-Roma'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=300">
+            <p>Roma</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="playa" class="oculto-inicio">
+    <button class="btn-back" onclick="irA('home')">⬅️ Volver</button>
+    <h2>Destinos de Playa</h2>
+
+    <div class="ciudades-grid">
+
+        <div class="card" onclick="enviarClic('Playa-Cancun'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300">
+            <p>Cancún</p>
+        </div>
+
+        <div class="card" onclick="enviarClic('Playa-Maldivas'); abrirModal(this.querySelector('img').src)">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=300">
+            <p>Maldivas</p>
+        </div>
+
+    </div>
+</section>
+
+
+<div id="modal-img" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">✖</span>
+    <img id="img-grande">
+</div>
+
+<script src="js/main.js"></script>
+```
+
+</body>
 </html>

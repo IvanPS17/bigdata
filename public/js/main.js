@@ -5,15 +5,17 @@ function iniciarSesion() {
 
     if(correoIngresado !== ""){
         usuarioActual = correoIngresado;
-        
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
 
-    console.log(`[Frontend] Sesion inciada con ${usuarioActual}`);
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('home').style.display = 'block';
+
+        // 👇 ESTA LÍNEA FALTA
+        document.getElementById('usuario-logueado').innerText = "Usuario: " + usuarioActual;
+
+        console.log(`[Frontend] Sesion iniciada con ${usuarioActual}`);
     } else {
         alert("Favor de ingresar un correo para continuar");
     }
-    
 }
 function irA(seccionId){
     const todasLasSecciones = document.querySelectorAll('section');
@@ -45,4 +47,16 @@ function enviarClic(detalle) {
     .catch(error => {
         console.error("Error de conexion: ", error);
     });
+}
+
+function abrirModal(src) {
+    const modal = document.getElementById("modal-img");
+    const img = document.getElementById("img-grande");
+
+    img.src = src;
+    modal.style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal-img").style.display = "none";
 }
